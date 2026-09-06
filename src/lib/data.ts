@@ -7,7 +7,7 @@ export const profile = {
   github: "https://github.com/lakshan-jk",
   githubUser: "lakshan-jk",
   linkedin: "https://linkedin.com/in/lakshan-kumar-j",
-  resume: "/resume.pdf",
+  resume: "/resume-lakshan-kumar.pdf",
   tagline:
     "I build and scale production systems — FinTech microservices, OTT streaming platforms, and AI/LLM products — end to end.",
   summary:
