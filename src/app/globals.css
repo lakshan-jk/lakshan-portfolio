@@ -1,26 +1,408 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #0c0c0e; /* neutral near-black */
+  --surface: #151517;
+  --surface-2: #1d1d20;
+  --foreground: #f6f3ec; /* ivory */
+  --muted: #a8a49c; /* neutral warm grey, readable */
+  --border: rgba(216, 188, 140, 0.16); /* gold hairline */
+  --border-strong: rgba(216, 188, 140, 0.42);
+  --accent: #dcbf8c; /* champagne gold */
+  --accent-2: #f2e6c8; /* light gold */
 }
 
 @theme inline {
   --color-background: var(--background);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
   --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-border: var(--border);
+  --color-accent: var(--accent);
+  --color-accent-2: var(--accent-2);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --font-serif: var(--font-serif);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  border-color: var(--border);
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+  letter-spacing: 0.01em;
+}
+
+/* Elegant serif display */
+.font-display {
+  font-family: var(--font-serif), Georgia, serif;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+}
+
+/* Ambient gradient glow — warm, restrained */
+.glow-bg {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(700px circle at 12% 8%, rgba(212, 180, 131, 0.1), transparent 42%),
+    radial-gradient(800px circle at 88% 15%, rgba(212, 180, 131, 0.06), transparent 46%),
+    radial-gradient(700px circle at 50% 95%, rgba(212, 180, 131, 0.05), transparent 42%);
+}
+
+.gradient-text {
+  background: linear-gradient(100deg, #f0e2c0 0%, #dcbf8c 45%, #b9975f 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Animated gold shimmer for headline emphasis */
+.shimmer {
+  background: linear-gradient(
+    100deg,
+    #b9975f 0%,
+    #f5ead0 25%,
+    #dcbf8c 50%,
+    #f5ead0 75%,
+    #b9975f 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: shimmer 5s linear infinite;
+}
+@keyframes shimmer {
+  to {
+    background-position: 200% center;
+  }
+}
+
+/* Infinite scrolling marquee */
+.marquee-wrap {
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(
+    90deg,
+    transparent,
+    #000 8%,
+    #000 92%,
+    transparent
+  );
+  mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+}
+.marquee-track {
+  display: inline-flex;
+  align-items: center;
+  white-space: nowrap;
+  width: max-content;
+  animation: marquee var(--marquee-duration, 40s) linear infinite;
+}
+.marquee-track.reverse {
+  animation-direction: reverse;
+}
+.marquee-wrap:hover .marquee-track {
+  animation-play-state: paused;
+}
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* Thin gold divider */
+.hairline {
+  height: 1px;
+  width: 100%;
+  background: linear-gradient(90deg, var(--border-strong), transparent);
+}
+
+.card {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(180deg, rgba(29, 29, 32, 0.7), rgba(21, 21, 23, 0.7));
+  border: 1px solid var(--border);
+  border-radius: 0.75rem;
+  transition: transform 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
+}
+/* CSS-only hover sheen (no JS needed) */
+.card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  pointer-events: none;
+  background: radial-gradient(
+    420px circle at 50% 0%,
+    rgba(220, 191, 140, 0.12),
+    transparent 70%
+  );
+  transition: opacity 0.4s ease;
+}
+.card:hover::before {
+  opacity: 1;
+}
+.card:hover {
+  transform: translateY(-4px);
+  border-color: var(--border-strong);
+  box-shadow: 0 24px 60px -28px rgba(220, 191, 140, 0.55);
+}
+
+/* Animated gold underline for nav links */
+.nav-link {
+  position: relative;
+}
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  height: 1px;
+  width: 100%;
+  background: linear-gradient(90deg, var(--accent), transparent);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+.nav-link:hover::after {
+  transform: scaleX(1);
+}
+
+.chip {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--border);
+  border-radius: 9999px;
+  font-size: 0.7rem;
+  letter-spacing: 0.04em;
+  padding: 0.28rem 0.75rem;
+  color: var(--muted);
+  white-space: nowrap;
+  transition: border-color 0.3s ease, color 0.3s ease, transform 0.3s ease,
+    background 0.3s ease;
+}
+.chip:hover {
+  border-color: var(--border-strong);
+  color: var(--accent-2);
+  transform: translateY(-1px) scale(1.03);
+  background: rgba(220, 191, 140, 0.08);
+}
+
+/* Gold primary button */
+.btn-gold {
+  background: linear-gradient(180deg, #e6cf9f, #d4b483);
+  color: #1a1509;
+  box-shadow: 0 10px 30px -12px rgba(212, 180, 131, 0.6);
+}
+.btn-gold:hover {
+  filter: brightness(1.05);
+}
+
+::-webkit-scrollbar {
+  width: 9px;
+}
+::-webkit-scrollbar-track {
+  background: var(--background);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(212, 180, 131, 0.25);
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent);
+}
+
+/* --- Robust reveal: VISIBLE by default, animation is enhancement only. --- */
+.reveal {
+  animation: reveal-up 0.7s both;
+}
+@keyframes reveal-up {
+  from {
+    opacity: 0;
+    transform: translateY(22px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.float-y {
+  animation: float-y 2s ease-in-out infinite;
+}
+@keyframes float-y {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(8px);
+  }
+}
+
+/* ---------- CSS 3D "gyroscope gem" — renders everywhere, no WebGL ---------- */
+.gem-stage {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  perspective: 900px;
+}
+.gem-3d {
+  position: relative;
+  width: 240px;
+  height: 240px;
+  transform-style: preserve-3d;
+  animation: gem-spin 18s linear infinite;
+  transition: transform 0.6s ease;
+}
+.gem-stage:hover .gem-3d {
+  animation-duration: 7s;
+}
+@keyframes gem-spin {
+  from {
+    transform: rotateX(-18deg) rotateY(0deg);
+  }
+  to {
+    transform: rotateX(-18deg) rotateY(360deg);
+  }
+}
+.gem-ring {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 1px solid rgba(220, 191, 140, 0.5);
+  box-shadow: 0 0 24px -6px rgba(220, 191, 140, 0.4);
+}
+.gem-ring:nth-child(1) {
+  transform: rotateY(0deg);
+}
+.gem-ring:nth-child(2) {
+  transform: rotateY(60deg);
+  border-color: rgba(220, 191, 140, 0.32);
+}
+.gem-ring:nth-child(3) {
+  transform: rotateY(120deg);
+  border-color: rgba(242, 230, 200, 0.28);
+}
+.gem-ring:nth-child(4) {
+  transform: rotateX(78deg);
+  inset: 40px;
+  border-color: rgba(220, 191, 140, 0.35);
+}
+.gem-ring:nth-child(5) {
+  transform: rotateX(78deg) rotateZ(45deg);
+  inset: 70px;
+  border-color: rgba(242, 230, 200, 0.22);
+}
+/* faceted core diamond */
+.gem-core {
+  position: absolute;
+  inset: 88px;
+  transform: rotateX(18deg) rotateZ(45deg);
+  background: linear-gradient(135deg, #f5ead0, #dcbf8c 45%, #a9824c);
+  box-shadow:
+    0 0 40px -4px rgba(220, 191, 140, 0.75),
+    inset 0 0 20px rgba(255, 255, 255, 0.4);
+  border-radius: 8px;
+  animation: gem-core-pulse 4s ease-in-out infinite;
+}
+@keyframes gem-core-pulse {
+  0%,
+  100% {
+    transform: rotateX(18deg) rotateZ(45deg) scale(0.9);
+    filter: brightness(0.95);
+  }
+  50% {
+    transform: rotateX(18deg) rotateZ(45deg) scale(1.05);
+    filter: brightness(1.15);
+  }
+}
+/* orbiting sparks */
+.gem-orbit {
+  position: absolute;
+  inset: 0;
+  transform-style: preserve-3d;
+  animation: gem-spin-rev 9s linear infinite;
+}
+@keyframes gem-spin-rev {
+  from {
+    transform: rotateX(70deg) rotateZ(0deg);
+  }
+  to {
+    transform: rotateX(70deg) rotateZ(-360deg);
+  }
+}
+.gem-spark {
+  position: absolute;
+  top: 50%;
+  left: -5px;
+  width: 8px;
+  height: 8px;
+  margin-top: -4px;
+  border-radius: 50%;
+  background: #f2e6c8;
+  box-shadow: 0 0 14px 3px rgba(242, 230, 200, 0.8);
+}
+.gem-spark.two {
+  left: auto;
+  right: -5px;
+  background: #dcbf8c;
+  box-shadow: 0 0 14px 3px rgba(220, 191, 140, 0.7);
+}
+
+/* Ambient orb behind the gem (glow). */
+.hero-orb {
+  position: absolute;
+  inset: 0;
+  border-radius: 9999px;
+  background:
+    radial-gradient(circle at 42% 35%, rgba(236, 220, 182, 0.5), transparent 60%),
+    radial-gradient(circle at 62% 68%, rgba(185, 151, 95, 0.4), transparent 62%);
+  filter: blur(34px);
+  opacity: 0.5;
+  animation: orb-pulse 7s ease-in-out infinite;
+}
+@keyframes orb-pulse {
+  0%,
+  100% {
+    transform: scale(0.92);
+    opacity: 0.45;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 0.6;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .reveal,
+  .float-y,
+  .hero-orb,
+  .shimmer,
+  .marquee-track,
+  .gem-3d,
+  .gem-core,
+  .gem-orbit {
+    animation: none;
+  }
 }
