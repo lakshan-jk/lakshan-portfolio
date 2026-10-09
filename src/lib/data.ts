@@ -133,6 +133,26 @@ export const projects: Project[] = [
     featured: true,
   },
   {
+    name: "backend-mastery",
+    tagline: "Runnable backend patterns you can actually poke at",
+    description:
+      "An open-source reference collection of production backend patterns — caching, idempotency, rate limiting, zero-downtime deploys, RBAC, AWS Lambda/S3 handlers, a Node RAG service, plus SQL & DSA. Every pattern is runnable with tests, docs, and GitHub Actions CI — built for brushing up or learning by doing.",
+    tech: ["Node.js", "AWS", "Redis", "GitHub Actions", "JavaScript"],
+    repo: "https://github.com/lakshan-jk/backend-mastery",
+    language: "JavaScript",
+    featured: true,
+  },
+  {
+    name: "orbit-ai",
+    tagline: "A fully local AI chatbot — no cloud, no API keys",
+    description:
+      "A privacy-first conversational AI that runs entirely on your machine: FastAPI backend, Next.js frontend, Ollama (llama3.2) for inference, and Redis for session/chat memory. No external APIs, no keys, no data leaving the box — a self-hosted ChatGPT alternative built to ship local-first LLM UX.",
+    tech: ["FastAPI", "Next.js", "Ollama (llama3.2)", "Redis", "Python"],
+    repo: "https://github.com/lakshan-jk/orbit-ai",
+    language: "Python",
+    featured: true,
+  },
+  {
     name: "CleanShot",
     tagline: "Clean, enhance & scan photos — 100% offline",
     description:
