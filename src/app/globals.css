@@ -10,6 +10,8 @@
   --border-strong: rgba(216, 188, 140, 0.42);
   --accent: #dcbf8c; /* champagne gold */
   --accent-2: #f2e6c8; /* light gold */
+  --accent-amber: #b5651d; /* burnt amber */
+  --accent-amber-2: #d98a3d; /* lighter burnt amber */
 }
 
 @theme inline {
@@ -21,6 +23,8 @@
   --color-border: var(--border);
   --color-accent: var(--accent);
   --color-accent-2: var(--accent-2);
+  --color-accent-amber: var(--accent-amber);
+  --color-accent-amber-2: var(--accent-amber-2);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
   --font-serif: var(--font-serif);
@@ -59,9 +63,18 @@ body {
   pointer-events: none;
   background:
     radial-gradient(700px circle at 12% 8%, rgba(212, 180, 131, 0.1), transparent 42%),
-    radial-gradient(800px circle at 88% 15%, rgba(212, 180, 131, 0.06), transparent 46%),
+    radial-gradient(800px circle at 88% 15%, rgba(181, 101, 29, 0.09), transparent 46%),
     radial-gradient(700px circle at 50% 95%, rgba(212, 180, 131, 0.05), transparent 42%);
 }
+
+/* Burnt-amber gradient utility (pairs with gold .gradient-text) */
+.gradient-amber {
+  background: linear-gradient(100deg, #d98a3d 0%, #b5651d 55%, #8a3f10 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
 
 .gradient-text {
   background: linear-gradient(100deg, #f0e2c0 0%, #dcbf8c 45%, #b9975f 100%);
@@ -138,7 +151,14 @@ body {
   overflow: hidden;
   background: linear-gradient(180deg, rgba(29, 29, 32, 0.7), rgba(21, 21, 23, 0.7));
   border: 1px solid var(--border);
+  border-top-color: rgba(217, 138, 61, 0.35); /* lit amber top edge */
   border-radius: 0.75rem;
+  /* Raised 3D amber slab: stacked bottom edges form the extruded "side" */
+  box-shadow:
+    0 2px 0 rgba(181, 101, 29, 0.35),
+    0 4px 0 rgba(154, 83, 26, 0.3),
+    0 6px 0 rgba(132, 63, 18, 0.25),
+    0 10px 22px -6px rgba(0, 0, 0, 0.55);
   transition: transform 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
 }
 /* CSS-only hover sheen (no JS needed) */
@@ -161,7 +181,14 @@ body {
 .card:hover {
   transform: translateY(-4px);
   border-color: var(--border-strong);
-  box-shadow: 0 24px 60px -28px rgba(220, 191, 140, 0.55);
+  border-top-color: rgba(217, 138, 61, 0.6);
+  /* deepen the extrusion + lift the gold glow on hover */
+  box-shadow:
+    0 3px 0 rgba(181, 101, 29, 0.45),
+    0 6px 0 rgba(154, 83, 26, 0.38),
+    0 9px 0 rgba(132, 63, 18, 0.3),
+    0 28px 60px -24px rgba(220, 191, 140, 0.5),
+    0 20px 40px -16px rgba(181, 101, 29, 0.35);
 }
 
 /* Animated gold underline for nav links */
@@ -363,8 +390,8 @@ body {
 .gem-spark.two {
   left: auto;
   right: -5px;
-  background: #dcbf8c;
-  box-shadow: 0 0 14px 3px rgba(220, 191, 140, 0.7);
+  background: #d98a3d;
+  box-shadow: 0 0 14px 3px rgba(181, 101, 29, 0.75);
 }
 
 /* Ambient orb behind the gem (glow). */
@@ -374,7 +401,7 @@ body {
   border-radius: 9999px;
   background:
     radial-gradient(circle at 42% 35%, rgba(236, 220, 182, 0.5), transparent 60%),
-    radial-gradient(circle at 62% 68%, rgba(185, 151, 95, 0.4), transparent 62%);
+    radial-gradient(circle at 62% 68%, rgba(181, 101, 29, 0.45), transparent 62%);
   filter: blur(34px);
   opacity: 0.5;
   animation: orb-pulse 7s ease-in-out infinite;

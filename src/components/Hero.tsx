@@ -22,7 +22,7 @@ export function Hero() {
             Hi, I&apos;m <span className="shimmer">Lakshan</span>.
             <br />
             I build systems{" "}
-            <span className="italic shimmer">that scale.</span>
+            <span className="italic gradient-amber">that scale.</span>
           </h1>
 
           <div className="hairline max-w-[6rem]" />
