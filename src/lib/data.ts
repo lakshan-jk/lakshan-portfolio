@@ -103,6 +103,36 @@ export const projects: Project[] = [
     note: "Freelance · Proprietary (Gravitorix)",
   },
   {
+    name: "discord-jira-bridge",
+    tagline: "Discord forum activity, synced into JIRA Cloud",
+    description:
+      "A bot that turns Discord forum posts into JIRA Stories, messages into comments, and keyword markers into real workflow status transitions — resolved against each issue's live JIRA workflow, never hardcoded. Ingestion is decoupled from JIRA writes by a durable Postgres queue, so the bridge survives restarts and JIRA outages with no lost or duplicated work. Deployed on Fly.io with a health-checked DB.",
+    tech: ["TypeScript", "Node.js", "discord.js", "JIRA Cloud API", "PostgreSQL", "Fly.io"],
+    repo: "https://github.com/lakshan-jk/discord-jira-bridge",
+    language: "TypeScript",
+    featured: true,
+  },
+  {
+    name: "backend-mastery",
+    tagline: "Runnable backend patterns you can actually poke at",
+    description:
+      "An open-source reference collection of production backend patterns — caching, idempotency, rate limiting, zero-downtime deploys, RBAC, AWS Lambda/S3 handlers, a Node RAG service, plus SQL & DSA. Every pattern is runnable with tests, docs, and GitHub Actions CI — built for brushing up or learning by doing.",
+    tech: ["Node.js", "AWS", "Redis", "GitHub Actions", "JavaScript"],
+    repo: "https://github.com/lakshan-jk/backend-mastery",
+    language: "JavaScript",
+    featured: true,
+  },
+  {
+    name: "orbit-ai",
+    tagline: "A fully local AI chatbot — no cloud, no API keys",
+    description:
+      "A privacy-first conversational AI that runs entirely on your machine: FastAPI backend, Next.js frontend, Ollama (llama3.2) for inference, and Redis for session/chat memory. No external APIs, no keys, no data leaving the box — a self-hosted ChatGPT alternative built to ship local-first LLM UX.",
+    tech: ["FastAPI", "Next.js", "Ollama (llama3.2)", "Redis", "Python"],
+    repo: "https://github.com/lakshan-jk/orbit-ai",
+    language: "Python",
+    featured: true,
+  },
+  {
     name: "HeatClip",
     tagline: "Turn YouTube's most-replayed moments into vertical Shorts",
     description:
@@ -130,26 +160,6 @@ export const projects: Project[] = [
     tech: ["Next.js 15", "Fastify", "Zod", "Monorepo", "TypeScript"],
     repo: "https://github.com/lakshan-jk/forgestack",
     language: "TypeScript",
-    featured: true,
-  },
-  {
-    name: "backend-mastery",
-    tagline: "Runnable backend patterns you can actually poke at",
-    description:
-      "An open-source reference collection of production backend patterns — caching, idempotency, rate limiting, zero-downtime deploys, RBAC, AWS Lambda/S3 handlers, a Node RAG service, plus SQL & DSA. Every pattern is runnable with tests, docs, and GitHub Actions CI — built for brushing up or learning by doing.",
-    tech: ["Node.js", "AWS", "Redis", "GitHub Actions", "JavaScript"],
-    repo: "https://github.com/lakshan-jk/backend-mastery",
-    language: "JavaScript",
-    featured: true,
-  },
-  {
-    name: "orbit-ai",
-    tagline: "A fully local AI chatbot — no cloud, no API keys",
-    description:
-      "A privacy-first conversational AI that runs entirely on your machine: FastAPI backend, Next.js frontend, Ollama (llama3.2) for inference, and Redis for session/chat memory. No external APIs, no keys, no data leaving the box — a self-hosted ChatGPT alternative built to ship local-first LLM UX.",
-    tech: ["FastAPI", "Next.js", "Ollama (llama3.2)", "Redis", "Python"],
-    repo: "https://github.com/lakshan-jk/orbit-ai",
-    language: "Python",
     featured: true,
   },
   {
