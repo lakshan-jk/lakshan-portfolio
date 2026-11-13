@@ -133,13 +133,13 @@ export const projects: Project[] = [
     featured: true,
   },
   {
-    name: "backend-mastery",
-    tagline: "Runnable backend patterns you can actually poke at",
+    name: "encodr-mcp",
+    tagline: "FFmpeg transcoding as tools any AI agent can call",
     description:
-      "An open-source reference collection of production backend patterns — caching, idempotency, rate limiting, zero-downtime deploys, RBAC, AWS Lambda/S3 handlers, a Node RAG service, plus SQL & DSA. Every pattern is runnable with tests, docs, and GitHub Actions CI — built for brushing up or learning by doing.",
-    tech: ["Node.js", "AWS", "Redis", "GitHub Actions", "JavaScript"],
-    repo: "https://github.com/lakshan-jk/backend-mastery",
-    language: "JavaScript",
+      "A local-first MCP (Model Context Protocol) server that exposes high-quality FFmpeg transcoding — video, audio, images, and subtitles — as structured tools any MCP host (Claude, etc.) can call. Ten tools covering modern codecs like AV1, with no cloud round-trip and no quality compromise: everything runs on your machine.",
+    tech: ["Python", "MCP", "FFmpeg", "AV1", "LLM tools"],
+    repo: "https://github.com/lakshan-jk/encodr-mcp",
+    language: "Python",
     featured: true,
   },
   {
