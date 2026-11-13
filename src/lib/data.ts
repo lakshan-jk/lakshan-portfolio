@@ -133,12 +133,12 @@ export const projects: Project[] = [
     featured: true,
   },
   {
-    name: "HeatClip",
-    tagline: "Turn YouTube's most-replayed moments into vertical Shorts",
+    name: "ledger-agent",
+    tagline: "An AI agent that owns a real finance workflow",
     description:
-      "Paste a YouTube link → HeatClip reads the video's 'most replayed' heatmap, uses Claude to turn the hottest moments into hook-led clips, lets you fine-tune timing on the graph, and renders downloadable 1080×1920 Shorts. Next.js frontend + FastAPI backend, powered by yt-dlp and ffmpeg.",
-    tech: ["Next.js", "FastAPI", "Claude API", "yt-dlp", "ffmpeg", "TypeScript"],
-    repo: "https://github.com/lakshan-jk/heatclip",
+      "A local-LLM agent that codes expense transactions to the right GL account — built to answer the four hard problems of agents running business workflows: changing business context, durable recovery when a step fails mid-run (every step checkpointed, resume never re-run), learning from a human's correction, and a measurable eval harness (accuracy climbs 93.8% → 100% after one correction feeds back). Runs 100% locally on Ollama (llama3.2 + nomic-embed-text) — no API keys, no cloud, no data leaving the machine.",
+    tech: ["TypeScript", "Node.js", "Ollama (llama3.2)", "Embeddings", "Agentic workflows"],
+    repo: "https://github.com/lakshan-jk/ledger-agent",
     language: "TypeScript",
     featured: true,
   },
