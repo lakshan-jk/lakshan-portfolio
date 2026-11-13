@@ -113,13 +113,13 @@ export const projects: Project[] = [
     featured: true,
   },
   {
-    name: "backend-mastery",
-    tagline: "Runnable backend patterns you can actually poke at",
+    name: "ledger-agent",
+    tagline: "An AI agent that owns a real finance workflow",
     description:
-      "An open-source reference collection of production backend patterns — caching, idempotency, rate limiting, zero-downtime deploys, RBAC, AWS Lambda/S3 handlers, a Node RAG service, plus SQL & DSA. Every pattern is runnable with tests, docs, and GitHub Actions CI — built for brushing up or learning by doing.",
-    tech: ["Node.js", "AWS", "Redis", "GitHub Actions", "JavaScript"],
-    repo: "https://github.com/lakshan-jk/backend-mastery",
-    language: "JavaScript",
+      "A local-LLM agent that codes expense transactions to the right GL account — built to answer the four hard problems of agents running business workflows: changing business context, durable recovery when a step fails mid-run (every step checkpointed, resume never re-run), learning from a human's correction, and a measurable eval harness (accuracy climbs 93.8% → 100% after one correction feeds back). Runs 100% locally on Ollama (llama3.2 + nomic-embed-text) — no API keys, no cloud, no data leaving the machine.",
+    tech: ["TypeScript", "Node.js", "Ollama (llama3.2)", "Embeddings", "Agentic workflows"],
+    repo: "https://github.com/lakshan-jk/ledger-agent",
+    language: "TypeScript",
     featured: true,
   },
   {
@@ -133,13 +133,13 @@ export const projects: Project[] = [
     featured: true,
   },
   {
-    name: "ledger-agent",
-    tagline: "An AI agent that owns a real finance workflow",
+    name: "backend-mastery",
+    tagline: "Runnable backend patterns you can actually poke at",
     description:
-      "A local-LLM agent that codes expense transactions to the right GL account — built to answer the four hard problems of agents running business workflows: changing business context, durable recovery when a step fails mid-run (every step checkpointed, resume never re-run), learning from a human's correction, and a measurable eval harness (accuracy climbs 93.8% → 100% after one correction feeds back). Runs 100% locally on Ollama (llama3.2 + nomic-embed-text) — no API keys, no cloud, no data leaving the machine.",
-    tech: ["TypeScript", "Node.js", "Ollama (llama3.2)", "Embeddings", "Agentic workflows"],
-    repo: "https://github.com/lakshan-jk/ledger-agent",
-    language: "TypeScript",
+      "An open-source reference collection of production backend patterns — caching, idempotency, rate limiting, zero-downtime deploys, RBAC, AWS Lambda/S3 handlers, a Node RAG service, plus SQL & DSA. Every pattern is runnable with tests, docs, and GitHub Actions CI — built for brushing up or learning by doing.",
+    tech: ["Node.js", "AWS", "Redis", "GitHub Actions", "JavaScript"],
+    repo: "https://github.com/lakshan-jk/backend-mastery",
+    language: "JavaScript",
     featured: true,
   },
   {
